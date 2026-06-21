@@ -121,11 +121,20 @@ Copy `.env.example` to `.env` and update the values.
 
 ## Project Status
 
-🚧 In Development (Phase 1 complete)
+🚧 In Development (Phase 2)
 
-Next:
+### Completed so far:
+- Vite + React + TypeScript setup
+- Tailwind CSS v4 configuration
+- Git repository with feature-based workflow
+- Redux Toolkit store setup
+- RTK Query API integration (Unsplash)
+- Typed Redux hooks setup
+- Provider architecture configured
 
-- RTK Query API setup
-- Redux store
-- Image grid UI
-- Search + filters
+### Next:
+- Build Image Grid UI (responsive gallery layout)
+- Implement loading & error states
+- Add Search functionality using RTK Query
+- Add Filters (category / orientation)
+- Add Image Modal (preview view)
