@@ -9,6 +9,7 @@ export type UnsplashImage = {
     small: string;
     regular: string;
     full: string;
+    raw: string;
   };
   user: {
     name: string;
