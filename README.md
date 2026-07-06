@@ -93,7 +93,7 @@ Grid adapts dynamically using Tailwind CSS.
 
 Live URL:
 
-https://image-gallery.vercel.app
+https://image-gallery-alpha-pied.vercel.app
 
 
 ---
@@ -131,10 +131,10 @@ Copy `.env.example` to `.env` and update the values.
 - RTK Query API integration (Unsplash)
 - Typed Redux hooks setup
 - Provider architecture configured
-
-### Next:
 - Build Image Grid UI (responsive gallery layout)
 - Implement loading & error states
+
+### Next:
 - Add Search functionality using RTK Query
 - Add Filters (category / orientation)
 - Add Image Modal (preview view)
