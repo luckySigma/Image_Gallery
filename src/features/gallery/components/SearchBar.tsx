@@ -1,7 +1,7 @@
 import { Search } from "lucide-react";
+import type { SearchBarProps } from "../gallery.types";
 
-export function SearchBar({ query, setQuery }) {
-
+export function SearchBar({ query, setQuery }: SearchBarProps) {
   return (
     <div className="mb-6 w-full">
       <label htmlFor="image-search" className="sr-only">

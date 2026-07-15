@@ -1,7 +1,6 @@
-import { Search } from "lucide-react";
 import { useSearch } from "../hooks/useSearch";
-import { SearchBar } from "./SearchBar";
 import { GalleryContainer } from "./GalleryContainer";
+import { SearchBar } from "./SearchBar";
 
 export function ImageSearchGallary() {
   const { query, setQuery, debounceQuery } = useSearch();

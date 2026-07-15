@@ -27,3 +27,8 @@ export type SearchImageArgs = {
   page?: number;
   query: string;
 };
+
+export type SearchBarProps = {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+};
