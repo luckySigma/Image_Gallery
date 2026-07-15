@@ -22,3 +22,13 @@ export type UnsplashSearchResponse = {
   total_pages: number;
   results: UnsplashImage[];
 };
+
+export type SearchImageArgs = {
+  page?: number;
+  query: string;
+};
+
+export type SearchBarProps = {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+};
