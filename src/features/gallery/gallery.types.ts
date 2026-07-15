@@ -22,3 +22,8 @@ export type UnsplashSearchResponse = {
   total_pages: number;
   results: UnsplashImage[];
 };
+
+export type SearchImageArgs = {
+  page?: number;
+  query: string;
+};
