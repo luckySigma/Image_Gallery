@@ -26,9 +26,10 @@ export type UnsplashSearchResponse = {
 export type SearchImageArgs = {
   page?: number;
   query: string;
+  orientation?:string;
 };
 
 export type SearchBarProps = {
   query: string;
-  handleSearchChange: (value: string) => void;
+  onChange: (value: string) => void;
 };
