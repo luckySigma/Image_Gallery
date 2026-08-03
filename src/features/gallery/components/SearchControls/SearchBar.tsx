@@ -1,9 +1,9 @@
 import { Search } from "lucide-react";
-import type { SearchBarProps } from "../gallery.types";
+import type { SearchBarProps } from "../../gallery.types";
 
-export function SearchBar({ query, setQuery }: SearchBarProps) {
+export function SearchBar({ query, onChange }: SearchBarProps) {
   return (
-    <div className="mb-6 w-full">
+    <div className="w-full">
       <label htmlFor="image-search" className="sr-only">
         Search Images
       </label>
@@ -30,7 +30,7 @@ export function SearchBar({ query, setQuery }: SearchBarProps) {
             "
           placeholder="Search Images"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => onChange(e.target.value)}
         />
       </div>
     </div>

@@ -1,5 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { SearchImageArgs, UnsplashImage } from "../features/gallery/gallery.types";
+import type {
+  SearchImageArgs,
+  UnsplashImage,
+} from "../features/gallery/gallery.types";
 
 export const IMAGES_PER_PAGE = 15;
 
@@ -16,9 +19,14 @@ export const imageApi = createApi({
     }),
 
     searchImages: builder.query({
-      query: ({page = 1, query}: SearchImageArgs) => {
-        return `search?page=${page}&query=${query}`;
-      },
+      query: ({ page = 1, query,orientation }: SearchImageArgs) => ({
+        url: "search",
+        params: {
+          page,
+          query,
+          orientation,
+        },
+      }),
     }),
   }),
 });
