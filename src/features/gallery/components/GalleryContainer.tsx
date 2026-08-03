@@ -1,14 +1,17 @@
 import { useGetImagesQuery, useSearchImagesQuery } from "../../../api/imageApi";
+import type { SearchFilters } from "../hooks/useSearch";
 import { Gallery } from "./Gallery";
 import { ImageGridEmpty } from "./ImageGridEmpty";
 import { ImageGridError } from "./ImageGridError";
 import { ImageGridSkeleton } from "./ImageGridSkeleton";
 
 type GalleryContainerProps = {
-  debounceQuery: string;
+  filters: SearchFilters;
 };
 
-export function GalleryContainer({ debounceQuery }: GalleryContainerProps) {
+export function GalleryContainer({ filters }: GalleryContainerProps) {
+  const isSearching = filters.query;
+
   const {
     data: initialImages = [],
     isLoading: isInitialLoading,
@@ -17,24 +20,28 @@ export function GalleryContainer({ debounceQuery }: GalleryContainerProps) {
   } = useGetImagesQuery(1);
 
   const {
-    currentData: searchImages = [],
+    data: searchImages = [],
     isLoading: isSearchLoading,
     isError: isSearchError,
     refetch: refetchSearch,
   } = useSearchImagesQuery(
-    { page: 1, query: debounceQuery },
     {
-      skip: !debounceQuery,
+      page: 1,
+      query: filters.query,
+      orientation: filters.orientation,
+    },
+    {
+      skip: !isSearching,
     },
   );
 
-  const images = debounceQuery ? searchImages : initialImages;
+  const images = isSearching ? searchImages : initialImages;
 
-  const isLoading = debounceQuery ? isSearchLoading : isInitialLoading;
+  const isLoading = isSearching ? isSearchLoading : isInitialLoading;
 
-  const isError = debounceQuery ? isSearchError : isInitialError;
+  const isError = isSearching ? isSearchError : isInitialError;
 
-  const refetch = debounceQuery ? refetchSearch : refetchInitial;
+  const refetch = isSearching ? refetchSearch : refetchInitial;
 
   return (
     <section className="min-h-screen">
