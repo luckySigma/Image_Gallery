@@ -30,5 +30,5 @@ export type SearchImageArgs = {
 
 export type SearchBarProps = {
   query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  handleSearchChange: (value: string) => void;
 };
