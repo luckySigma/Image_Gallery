@@ -7,8 +7,8 @@ type ImageGridProps = {
 
 export function ImageGrid({ images }: ImageGridProps) {
   return (
-    <section aria-label="Image-gallery">
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <section aria-label="Image gallery">
+      <ul className="grid grid-cols-1 gap-4 min-[576px]:grid-cols-2 min-[576px]:gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {images.map((image, index) => (
           <li key={image.id}>
             <ImageCard image={image} index={index} />
