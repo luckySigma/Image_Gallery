@@ -30,8 +30,7 @@ export default function HomePage() {
             IMAGE GALLERY
           </h1>
           <p className="mt-3 max-w-xl text-sm text-(--ink-muted) sm:text-base">
-            A running index of stunning, high-quality photography — search
-            the archive, frame by frame.
+            Search a curated collection of stunning, high-quality images.
           </p>
         </div>
       </header>
