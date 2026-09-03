@@ -7,10 +7,25 @@
     <meta name="description" content="Search and browse a curated gallery of high-quality photos." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="preconnect" href="https://gallery-api-lf4c.onrender.com" />
     <link
+      id="font-stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
     />
+    <script>
+      document.getElementById("font-stylesheet").addEventListener("load", function () {
+        this.rel = "stylesheet";
+      });
+    </script>
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
     <title>Image Gallery</title>
   </head>
   <body>
