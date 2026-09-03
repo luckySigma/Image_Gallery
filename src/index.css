@@ -1,1 +1,68 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: light;
+
+  --paper: #efe9dc;
+  --paper-raised: #fbf8f2;
+  --ink: #211e1a;
+  --ink-muted: #756f63;
+  --safelight: #c1402a;
+  --sprocket: #c9c2b2;
+
+  --gallery-gradient:
+    radial-gradient(circle at 12% 18%, rgba(196, 105, 64, 0.2) 0%, transparent 42%),
+    radial-gradient(circle at 88% 78%, rgba(122, 140, 105, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 75% 10%, rgba(224, 178, 120, 0.16) 0%, transparent 38%),
+    radial-gradient(circle at 20% 85%, rgba(122, 140, 105, 0.12) 0%, transparent 40%);
+}
+
+body,
+.sticky-search-bar {
+  background-color: var(--paper);
+  background-image: var(--gallery-gradient);
+  background-attachment: fixed;
+}
+
+body {
+  color: var(--ink);
+  font-family:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.font-display {
+  font-family: "Big Shoulders Condensed", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sprocket) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--sprocket);
+  border-radius: 9999px;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.6s infinite;
+}

@@ -1,43 +1,25 @@
 import { IMAGE_CATEGORIES } from "../../../../constants/ImageFilters";
+import { Select } from "./Select";
 
 type CategoryFilterProps = {
   category: string;
   onChange: (value: string) => void;
 };
 
-export function CategoryFilter({
-  category,
-  onChange
-}: CategoryFilterProps) {
-  return (
-    <div className="w-full">
-      <label htmlFor="category-filter" className="sr-only">
-        Category
-      </label>
+const CATEGORY_OPTIONS = IMAGE_CATEGORIES.map((item) => ({
+  value: item,
+  label: item.charAt(0).toUpperCase() + item.slice(1),
+}));
 
-      <select
-        id="category-filter"
-        value={category}
-        onChange={(e) => onChange(e.target.value)}
-        className="
-          w-full
-          rounded-lg
-          border
-          border-gray-300
-          py-3
-          px-4
-          focus:border-blue-500
-          focus:ring-2
-          focus:ring-blue-500/20
-        "
-      >
-        <option value="" disabled>Select Category</option>
-        {IMAGE_CATEGORIES.map((item) => (
-          <option key={item} value={item}>
-            {item}
-          </option>
-        ))}
-      </select>
-    </div>
+export function CategoryFilter({ category, onChange }: CategoryFilterProps) {
+  return (
+    <Select
+      id="category-filter"
+      label="Category"
+      placeholder="Select Category"
+      value={category}
+      options={CATEGORY_OPTIONS}
+      onChange={onChange}
+    />
   );
 }
