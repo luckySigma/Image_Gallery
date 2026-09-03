@@ -1,10 +1,14 @@
 import { useSearch } from "../hooks/useSearch";
 import { GalleryContainer } from "./GalleryContainer";
 import { CategoryFilter } from "./SearchControls/CategoryFilter";
-import { OrientationFilter } from "./SearchControls/OrentationFilter";
+import { OrientationFilter } from "./SearchControls/OrientationFilter";
 import { SearchBar } from "./SearchControls/SearchBar";
 
-export function ImageSearchGallary() {
+type ImageSearchGallaryProps = {
+  stickyOffset?: number;
+};
+
+export function ImageSearchGallary({ stickyOffset = 0 }: ImageSearchGallaryProps) {
   const {
     query,
     setQuery,
@@ -12,10 +16,6 @@ export function ImageSearchGallary() {
     setOrientation,
     filters,
   } = useSearch();
-
-  const handleCategoryChange = (value: string) => {
-    setQuery(value);
-  };
 
   const handleSearchChange = (value: string) => {
     setQuery(value);
@@ -27,25 +27,28 @@ export function ImageSearchGallary() {
 
   return (
     <section aria-label="Image search and gallery">
-      <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center">
-        <div className="flex-1">
+      <div
+        className="sticky-search-bar sticky z-40 mb-8 flex flex-col gap-4 pt-4 pb-2 sm:pt-5 min-[567px]:flex-row min-[567px]:items-end"
+        style={{ top: stickyOffset }}
+      >
+        <div className="min-w-0 flex-1">
           <SearchBar
             query={query}
             onChange={handleSearchChange}
           />
         </div>
 
-        <div className="w-full lg:w-64">
+        <div className="w-full min-[567px]:w-32 sm:w-44 lg:w-64">
           <CategoryFilter
             category={query}
-            onChange={handleCategoryChange}
+            onChange={setQuery}
           />
         </div>
 
-        <div className="w-full lg:w-64">
+        <div className="w-full min-[567px]:w-32 sm:w-44 lg:w-64">
           <OrientationFilter
             orientation={orientation}
-            setOrientation={setOrientation}
+            onChange={setOrientation}
           />
         </div>
       </div>
